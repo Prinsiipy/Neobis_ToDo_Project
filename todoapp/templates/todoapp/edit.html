@@ -1,0 +1,15 @@
+{% extends 'todoapp/layout.html' %}
+
+{% block content %}
+
+<div style="margin-top: 50px;" class="ui container">
+    <h1 class="ui center aligned header">Редактирование задачи</h1>
+    <form class="ui form" action="{% url 'edit' todo_id=todo.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="ui teal basic button" type="submit">Сохранить</button>
+    </form>
+</div>
+
+{% endblock content %}
+

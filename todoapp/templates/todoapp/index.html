@@ -1,0 +1,46 @@
+{% extends 'todoapp/layout.html' %}
+
+{% block content %}
+
+<div style="margin-top: 50px;" class="ui container">
+    <h1 class="ui center aligned header">Твой менеджер задач</h1>
+    <h3 class="test_style">Управляй своим временем!</h3>
+    <form class="ui form" action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label>Новая задача</label>
+            <input type="text" name="title" placeholder="Введите название задачи">
+        </div>
+        <div class="field">
+            <label>Описание задачи</label>
+            <textarea name="description" placeholder="Введите описание задачи"></textarea>
+        </div>
+         <button class="ui teal basic button" type="submit">Добавить</button>
+    </form>
+
+    {% for todo in todo_list %}
+    <div class="ui segment">
+        <h2 class="ui header">{{ todo.title }}</h2>
+        {% if todo.completed %}
+            <span class="ui green label">Завершено</span>
+        {% else %}
+            <span class="ui gray label">Не завершено</span>
+        {% endif %}
+        <a class="ui primary basic button" href="{% url 'update' todo_id=todo.id %}">
+            {% if todo.completed %}
+                Открыть
+            {% else %}
+                Закрыть
+            {% endif %}
+        </a>
+        <a class="ui negative basic button" href="{% url 'delete' todo_id=todo.id %}">Удалить</a>
+        <a class="ui orange button" href="{% url 'edit' todo_id=todo.id %}">Редактировать</a>
+        {% if todo.description %}
+            <p>{{ todo.description }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
