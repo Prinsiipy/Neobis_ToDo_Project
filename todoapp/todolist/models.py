@@ -1,7 +1,9 @@
+from datetime import timezone
 from django.db import models
+from django.template.backends import django
+from django.utils import timezone
+from django.urls import reverse
 
-
-# Create your models here.
 
 class ToDo(models.Model):
     title = models.CharField('Название задания', max_length=500)
