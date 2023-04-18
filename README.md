@@ -19,7 +19,7 @@ _____________
 ## **Установка и запуск приложения:**
 
 1. Убедитесь, что на вашем компьютере установлен Python версии 3.6 или выше.
-2. Склонируйте репозиторий с помощью команды **`https://github.com/Prinsiipy/Neobis_ToDo_Project.git
+2. Склонируйте репозиторий с помощью команды **git clone`https://github.com/Prinsiipy/Neobis_ToDo_Project.git
 3. Перейдите в папку проекта **`cd todoapp`**
 4. Установите зависимости из файла requirements.txt **`pip install -r requirements.txt`**
 5. Запустите миграции командой **`python manage.py migrate`**
